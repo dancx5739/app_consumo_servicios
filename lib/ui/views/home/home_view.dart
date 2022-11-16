@@ -10,7 +10,7 @@ class HomeView extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.backGroudMain,
       appBar: AppBar(
-        toolbarHeight: 88,
+        toolbarHeight: 70,
         // Widget buscador
         title: const SearchBar(),
         backgroundColor: AppColors.backGroudMain,
