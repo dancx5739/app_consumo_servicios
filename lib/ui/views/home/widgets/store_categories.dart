@@ -30,25 +30,16 @@ class _StoreCategoriesState extends State<StoreCategories> {
   List<ResponseCategoriesModel> categories = [];
   
 
-  fetchData() async {
+  void fetchData() async {
     var dio = Dio();
     final response = await dio.get(
       'https://api.escuelajs.co/api/v1/categories',
       
     );
 
-    //category = ResponseCategoriesModel.fromJson(response.data);
+    category = ResponseCategoriesModel.fromJson(response.data);
 
-    return (response.data[1] as List)
-        .map((json) => ResponseCategoriesModel.fromJson(json))
-        .toList();
-
-    
   }
-
-  
-
-  
 
 
   @override
