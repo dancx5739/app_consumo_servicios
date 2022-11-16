@@ -9,7 +9,7 @@ class StoreOffer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 16, left: 16,bottom: 20),
+      margin: const EdgeInsets.only(right: 16, left: 16,bottom: 20, top: 20),
       width: double.infinity,
       height: 110,
       decoration: BoxDecoration(

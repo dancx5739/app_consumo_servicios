@@ -55,7 +55,7 @@ class _StoreCategoriesState extends State<StoreCategories> {
           // final category = categories[index];
 
           return Container(
-            margin: const EdgeInsets.only(top: 16),
+            margin: const EdgeInsets.only(top: 24),
             width: 100,
             height: 130,
             child: Column(
