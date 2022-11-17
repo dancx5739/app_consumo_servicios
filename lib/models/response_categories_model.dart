@@ -1,25 +1,31 @@
 // https://app.quicktype.io/
 
 class ResponseCategoriesModel {
-    ResponseCategoriesModel({
-        this.id,
-        this.name,
-        this.image,
-    });
+  ResponseCategoriesModel({
+    this.items,
+  });
+  List<ItemCategoryModel>? items;
+  factory ResponseCategoriesModel.fromJson(List<dynamic> json) =>
+      ResponseCategoriesModel(
+        items: List<ItemCategoryModel>.from(
+            json.map((x) => ItemCategoryModel.fromJson(x))),
+      );
+}
 
-    int? id;
-    String? name;
-    String? image;
+class ItemCategoryModel {
+  ItemCategoryModel({
+    this.id,
+    this.name,
+    this.image,
+  });
 
-    factory ResponseCategoriesModel.fromJson(Map<String, dynamic> json) => ResponseCategoriesModel(
+  int? id;
+  String? name;
+  String? image;
+  factory ItemCategoryModel.fromJson(Map<String, dynamic> json) =>
+      ItemCategoryModel(
         id: json["id"],
         name: json["name"],
         image: json["image"],
-    );
-
-    Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "image": image,
-    };
+      );
 }

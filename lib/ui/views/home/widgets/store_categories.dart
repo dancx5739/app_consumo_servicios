@@ -27,7 +27,7 @@ class _StoreCategoriesState extends State<StoreCategories> {
   }
 
   ResponseCategoriesModel category = ResponseCategoriesModel();
-  List<ResponseCategoriesModel> categories = [];
+  List<ItemCategoryModel> categories = [];
   
 
   void fetchData() async {
@@ -38,6 +38,7 @@ class _StoreCategoriesState extends State<StoreCategories> {
     );
 
     category = ResponseCategoriesModel.fromJson(response.data);
+    categories = category.items ?? [];
 
   }
 
@@ -49,10 +50,10 @@ class _StoreCategoriesState extends State<StoreCategories> {
       height: 130,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 5,
+        itemCount: categories.length,
         itemBuilder: (context, index) {
 
-          // final category = categories[index];
+          final category = categories[index];
 
           return Container(
             margin: const EdgeInsets.only(top: 24),
@@ -66,17 +67,15 @@ class _StoreCategoriesState extends State<StoreCategories> {
                   height: 60,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(50),
-                    child: const Image(
-                      //image: NetworkImage('${category.image}'),
-                      image: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQePLeI41zRw8TOs9XMlb18T_2E5kn-KSyKNw&usqp=CAU'),
+                    child: Image(
+                      image: NetworkImage('${category.image}'),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                const Text(
-                  //'${category.name}',
-                  'Producto',
-                  style: TextStyle(
+                Text(
+                  '${category.name}',
+                  style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontSize: 16
                   )
